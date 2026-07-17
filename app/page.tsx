@@ -1,65 +1,83 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Home() {
+  const phoneNumber = "7066021476";
+  const whatsappLink = `https://wa.me/91${phoneNumber}`;
+  const callLink = `tel:+91${phoneNumber}`;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-white">
+      {/* Navbar */}
+      <nav className="sticky top-0 bg-blue-800 text-white p-4 shadow-md z-50">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-extrabold tracking-tight">Dsouza Batteries</h1>
+          <a href={callLink} className="bg-yellow-500 text-black px-4 py-2 rounded-full font-bold text-sm hover:bg-yellow-400">
+            Call Now
+          </a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </nav>
+
+      {/* Hero Section */}
+      <header className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Powering Your Journey</h1>
+        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          Reliable Car, Bike, and Inverter batteries in Morjim, Goa. Doorstep delivery & professional installation.
+        </p>
+        <a href={callLink} className="bg-green-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-500 shadow-lg transition">
+          Call Now: +91 {phoneNumber}
+        </a>
+      </header>
+
+      {/* Services Section */}
+      <section className="py-16 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { title: "Car Batteries", desc: "Premium batteries for all major car brands with on-site replacement." },
+            { title: "Bike Batteries", desc: "High-performance, long-lasting batteries for your two-wheeler." },
+            { title: "Inverter & UPS", desc: "Stay powered during outages with our high-capacity home setups." }
+          ].map((card, i) => (
+            <div key={i} className="bg-white p-8 rounded-2xl border border-blue-100 shadow-md hover:shadow-xl transition-shadow">
+              <h3 className="text-2xl font-bold mb-3 text-blue-700">{card.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Location Section */}
+      <section className="py-16 bg-gray-50 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Visit Our Shop</h2>
+          <div className="w-full h-96 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1705.0007160745122!2d73.73739152603088!3d15.632491388931813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfe90d11c08d97%3A0xbed862214f784148!2sDsouza%20batteries.%20Morjim%2C%20Pernem%2C%20Goa%2C%20India.!5e0!3m2!1sen!2sin!4v1784210211226!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-10 text-center">
+        <p>© 2026 Dsouza Batteries. Your local power partner in Goa.</p>
+      </footer>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all transform hover:scale-110 z-50 flex items-center gap-2"
+      >
+        <span className="text-xl">💬</span>
+        <span className="font-bold hidden md:block">Chat with us</span>
+      </a>
+    </main>
   );
 }
