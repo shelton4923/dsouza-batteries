@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   const phoneNumber = "7066021476";
@@ -32,20 +33,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Products & Services */}
-      <section className="py-16 px-6 max-w-6xl mx-auto bg-gray-50 rounded-3xl">
+       <section className="py-16 px-6 max-w-6xl mx-auto bg-gray-50 rounded-3xl">
         <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">Products & Services</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Car Batteries", desc: "Genuine Amaron range. Accurate testing and expert fitting at our shop." },
-            { title: "Bike Batteries", desc: "Long-life Amaron batteries for all bikes. Quick replacement service." },
-            { title: "Inverters & UPS", desc: "Luminous & Livguard power solutions. Expert advice for your home backup." }
-          ].map((card, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="text-xl font-bold mb-3 text-blue-800">{card.title}</h3>
-              <p className="text-gray-600">{card.desc}</p>
-            </div>
-          ))}
+          
+          <Link href="/car-batteries" className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition block">
+            <h3 className="text-xl font-bold mb-3 text-blue-800">Car Batteries</h3>
+            <p className="text-gray-600">Genuine Amaron range. Accurate testing and expert fitting at our shop.</p>
+          </Link>
+
+          <Link href="/bike-batteries" className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition block">
+            <h3 className="text-xl font-bold mb-3 text-blue-800">Bike Batteries</h3>
+            <p className="text-gray-600">Long-life Amaron batteries for all bikes. Quick replacement service.</p>
+          </Link>
+
+          <Link href="/inverter-batteries" className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition block">
+            <h3 className="text-xl font-bold mb-3 text-blue-800">Inverters & UPS</h3>
+            <p className="text-gray-600">Luminous & Livguard power solutions. Expert advice for your home backup.</p>
+          </Link>
+
         </div>
       </section>
 
